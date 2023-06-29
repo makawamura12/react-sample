@@ -1,12 +1,11 @@
-import React from 'react'
-
+import React, { FC } from 'react'
+//React.FCの使用例(VFCも同様に定義可能)
 // Containerのpropsの型を定義します
-type ContainerProps = {
+type Props = {
     title:string
     children:React.ReactNode
 }
-const Container = (props:ContainerProps):JSX.Element => {
-    const { title, children} = props
+const Container :FC<Props> = ({title,children}) => {
 
     return(
         <div style={{background: 'red'}}>
@@ -17,7 +16,7 @@ const Container = (props:ContainerProps):JSX.Element => {
     )
 }
 
-const Parent = ():JSX.Element => {
+const Parent: FC = () => {
     return(
         // Container を使用する際に、他の要素を囲って使用する
         <Container title="Hello">
