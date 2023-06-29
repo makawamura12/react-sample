@@ -1,6 +1,11 @@
-// Container は赤背景のボックスの中にタイトルと子要素を表示します
-// propsオブジェクトで型定義をする↓
-const Container = (props: {title: string; children: React.ReactElement}) => {
+import React from 'react'
+
+// Containerのpropsの型を定義します
+type ContainerProps = {
+    title:string
+    children:React.ReactNode
+}
+const Container = (props:ContainerProps):JSX.Element => {
     const { title, children} = props
 
     return(
@@ -12,7 +17,7 @@ const Container = (props: {title: string; children: React.ReactElement}) => {
     )
 }
 
-const Parent = () => {
+const Parent = ():JSX.Element => {
     return(
         // Container を使用する際に、他の要素を囲って使用する
         <Container title="Hello">
